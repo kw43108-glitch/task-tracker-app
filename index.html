@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ระบบติดตามงานค้าง (Task Tracker)</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo-area">
+        <i class="fa-solid fa-list-check logo-icon"></i>
+        <div>
+          <h1>ระบบติดตามงานค้าง</h1>
+          <p>จัดการการบ้านและโปรเจกต์อย่างเป็นระบบ</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Dashboard Statistics -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon all"><i class="fa-solid fa-folder-open"></i></div>
+        <div class="stat-info">
+          <span class="stat-value" id="stat-total">0</span>
+          <span class="stat-label">งานทั้งหมด</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon pending"><i class="fa-solid fa-clock"></i></div>
+        <div class="stat-info">
+          <span class="stat-value" id="stat-pending">0</span>
+          <span class="stat-label">กำลังดำเนินการ</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon completed"><i class="fa-solid fa-circle-check"></i></div>
+        <div class="stat-info">
+          <span class="stat-value" id="stat-completed">0</span>
+          <span class="stat-label">เสร็จสิ้นแล้ว</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <main class="content-grid">
+      <!-- Task Form -->
+      <section class="card form-card">
+        <h2><i class="fa-solid fa-square-plus"></i> เพิ่มงานใหม่</h2>
+        <form id="task-form">
+          <div class="form-group">
+            <label for="task-title">ชื่องาน / รายงาน</label>
+            <input type="text" id="task-title" placeholder="เช่น รายงานวิชาภาษาไทย" required>
+          </div>
+          <div class="form-group">
+            <label for="task-subject">วิชา / หมวดหมู่</label>
+            <input type="text" id="task-subject" placeholder="เช่น วิทยาศาสตร์, คณิตศาสตร์" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="task-date">วันกำหนดส่ง</label>
+              <input type="date" id="task-date" required>
+            </div>
+            <div class="form-group">
+              <label for="task-priority">ความสำคัญ</label>
+              <select id="task-priority">
+                <option value="low">ต่ำ (ชิลๆ)</option>
+                <option value="medium" selected>ปานกลาง</option>
+                <option value="high">สูง (ด่วนมาก)</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            <i class="fa-solid fa-plus"></i> บันทึกงานค้าง
+          </button>
+        </form>
+      </section>
+
+      <!-- Task List -->
+      <section class="card list-card">
+        <div class="list-header">
+          <h2><i class="fa-solid fa-tasks"></i> รายการงานค้าง</h2>
+          <div class="filter-group">
+            <button class="filter-btn active" data-filter="all">ทั้งหมด</button>
+            <button class="filter-btn" data-filter="pending">รอดำเนินการ</button>
+            <button class="filter-btn" data-filter="completed">เสร็จแล้ว</button>
+          </div>
+        </div>
+        <div id="task-list" class="task-list">
+          <!-- โค้ด JavaScript จะนำรายการงานมาใส่ตรงนี้ -->
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
